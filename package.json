@@ -1,0 +1,52 @@
+{
+  "name": "concordialang-playwright",
+  "version": "0.1.0",
+  "description": "Concordia compiler plug-in for Playwright",
+  "author": "Thiago Delgado Pinto",
+  "license": "AGPL-3.0",
+  "keywords": [
+    "concordia",
+    "concordialang",
+    "plugin",
+    "playwright",
+    "e2e",
+    "ui",
+    "user-interface",
+    "browser",
+    "web",
+    "test",
+    "automation",
+    "testing",
+    "agile"
+  ],
+  "files": [
+    "dist/*"
+  ],
+  "source": "src/index.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "concordiaPlugin": true,
+  "scripts": {
+    "test": "jest",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "microbundle --no-sourcemap --target node --format esm,cjs",
+    "fixup": "git commit --fixup HEAD & git rebase --autosquash -i HEAD~2 && git push --force"
+  },
+  "dependencies": {
+    "concordialang-plugin": "git+https://github.com/thiagodp/concordialang-plugin.git"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.0.1",
+    "jest": "^26.6.3",
+    "microbundle": "^0.13.3",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.5.5"
+  },
+  "engines": {
+    "node": ">=12.20"
+  }
+}
