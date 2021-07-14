@@ -21,7 +21,7 @@ export async function generate(
 ): Promise< TestScriptGenerationResult > {
 
     const runner = runnerDef( 'playwright' ); // TODO: read runner name from config
-    const runnerOptions: Options = undefined; // TODO: read runner options from config
+    const runnerOptions: Options = { browser: 'chromium', useTypescript: false }; // TODO: read runner options from config
     const templateStr = runner.templateContent( runnerOptions );
     const fileExtension: string = runner.fileExtension( runnerOptions );
 

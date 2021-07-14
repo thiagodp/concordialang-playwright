@@ -2393,9 +2393,8 @@ test.describe("{{feature.name}}", () => {
         await browser.close();
     });
     {{/afterFeature}}
-    {{#beforeEachScenario}}
-
     test.describe("{{scenario}}", () => {
+        {{#beforeEachScenario}}
 
         test.beforeEach( async ({ page }) => { // Before Each Scenario
             {{#convertedCommands}}
@@ -2440,7 +2439,10 @@ function runnerDef(runner) {
 async function generate(abstractTestScripts, options) {
   const runner = runnerDef(); // TODO: read runner name from config
 
-  const runnerOptions = undefined; // TODO: read runner options from config
+  const runnerOptions = {
+    browser: 'chromium',
+    useTypescript: false
+  }; // TODO: read runner options from config
 
   const templateStr = runner.templateContent(runnerOptions);
   const fileExtension = runner.fileExtension(runnerOptions);

@@ -50,9 +50,8 @@ test.describe("{{feature.name}}", () => {
         await browser.close();
     });
     {{/afterFeature}}
-    {{#beforeEachScenario}}
-
     test.describe("{{scenario}}", () => {
+        {{#beforeEachScenario}}
 
         test.beforeEach( async ({ page }) => { // Before Each Scenario
             {{#convertedCommands}}
