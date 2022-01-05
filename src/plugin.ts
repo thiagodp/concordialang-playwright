@@ -15,7 +15,10 @@ export class PlaywrightPlugin implements ConcordiaPlugin {
     convert = convert;
 
     /** @inheritdoc */
-    defaultReportFile = async function defaultReportFile(): Promise< string > { return 'TO-DO'; }
+    defaultReportFile = async function defaultReportFile(): Promise< string > { return 'TO-DO'; };
+
+    beforeReport = async () => console.log( '[beforeReport]' );
+    afterReport = async () => console.log( '[afterReport]' );
 
 }
 
